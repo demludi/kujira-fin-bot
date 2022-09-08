@@ -6,7 +6,7 @@ Quickstart
 git clone https://github.com/demludi/kujira-fin-bot.git 
 yarn 
 
-SET YOUR MNEMONIC in Buy.js and Sell.js
+SET YOUR MNEMONIC in Buy.js , Sell.js & Claim.js
 const MNEMONIC = "world world world world world world world world world world world world";
 
 node Buy.js ( Submit limit buy order ) 
