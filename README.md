@@ -1,4 +1,5 @@
-# Sample KUJIRA FIN BOT
+# KUJIRA FIN BOT
+
 This is a very simple demonstration of how you can use kujira.js to create a trading bot on FIN.
 
 Quickstart
