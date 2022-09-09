@@ -32,16 +32,20 @@ const signingClient = await SigningStargateClient.connectWithSigner(
 );
 
 
-  const ordersWithdraw = async (wallet: Wallet, contract: Contract, orders: Order[]) => {
-  const client = new FinClient(
-    wallet.client,
-    wallet.account.address,
-    contract.address,
-  );
-  return client.withdrawOrders({
-    orderIdxs: orders.filter((o) => +o.filled_amount).map((o) => o.idx.toString()),
-  });
-}
+const msg = tx.wasm.msgExecuteContract({
+  sender: account.address,
+  contract: FIN_KUJI_DEMO,
+  msg: Buffer.from(JSON.stringify({ withdraw_orders: { orderIdxs: "auto" } })),
+});
+
+
+
+await signingClient.signAndBroadcast(account.address, [msg], "auto");
+
+
+const orders = await contract.ordersByUser({ address: account.address });
+
+console.log(orders);
 
 
 
